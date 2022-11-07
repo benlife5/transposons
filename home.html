@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Transposable Elements - Computation Biology</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.css" type="text/css"/>
   </head>
   <body>
     <!-- Navbar -->
@@ -18,8 +19,41 @@
     <!-- Content -->
     <div class="content">
       <h1>Transposable Elements</h1>
-      <h4>Background Information</h4>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula ligula id mi commodo porttitor. Vivamus eget interdum ligula. Cras feugiat urna in lacus egestas, et mollis tortor elementum. Maecenas molestie lorem id elit efficitur ultrices. Praesent tincidunt ex et molestie luctus. Etiam id magna aliquet, euismod risus quis, accumsan erat. Maecenas id erat gravida elit pulvinar consequat sit amet id enim. In sagittis in elit in auctor. Donec tincidunt elit a molestie ultricies. Pellentesque urna felis, tristique at commodo ac, dignissim auctor justo. Pellentesque ut efficitur ante. Nullam mauris lacus, fermentum vel porta eu, ornare nec neque.</p>
+      <p>Transposable Elements (also called transposons or TEs) are DNA sequences that are able to move from one location to another in the genome.</p>
+      <p>Transposons have been identified in all types of life, from bacteria to humans. Further, significant portions of many species' genomes are made of transposons, including 45% of human DNA and 90% of maize DNA.<a href="#1" class="citation">[1]</a></p>
+      <h4>Types of Transposable Elements</h4>
+      <p>Transposable Elements broadly fall into two categories: RNA Retrotransposons and DNA Transposons. Species vary on the proportion of DNA to RNA transposons in their genome, but human DNA contains overwelmingly RNA retrotransposons.</p>
+      <div style="text-align: center;">
+        <img class='content-image' style="max-height:none;" src="https://www.nature.com/scitable/content/29645/NE_transposons_large_2.jpg"/>
+        <br />
+        <a href="#2" class="citation">Image: [2]</a>
+        <p>(Sc: Saccharomyces cerevisiae (yeast); Sp: Schizosaccharomyces pombe (yeast); Hs: Homo sapiens (humans); Mm: Mus musculus (mouse); Os: Oryza sativa (rice); Ce: Caenorhabditis elegans (roundworm); Dm: Drosophila melanogaster (fly); Ag: Anopheles gambiae (malaria mosquito); Aa: Aedes aegypti, yellow fever mosquito; Eh: Entamoeba histolytica (parasite); Ei: Entamoeba invadens (parasite); Tv: Trichomonas vaginalis (STD).)</p>
+        <p>Note: the plan is to make this easier to read and more interactive later.</p>
+      </div>
+
+      <h4>RNA Retrotransposons</h4>
+      <p>RNA-based transposable elements rely on transcription from DNA to RNA and then using reverse transcriptase to be placed back into DNA. Because the RNA makes a copy of the transposable element and then reinserts it elsewhere, this creates a copy-and-paste effect.</p>
+      <p>Retrotransposons can be further classified into Long Terminal Repeat elements (LTRs) and Non-LTR elements. LTR transposons have long sequences of repeated DNA surrounding their genes. These repeats are often ~5 kilo-base-pairs long.<a href="#3" class="citation">[3]</a></p>
+      <p>The most famous human transposable elements, Alu and LINE1 are Non-LTR Retrotransposons. See more at <a href="./common/html">Common Transposable Elements</a>.</p>
+
+      <h4>DNA Transposons</h4>
+      <p>DNA Transposons use a transposase enzyme to move within DNA. Generally, the structure of a DNA transposon is Terminal Inverted Repeat | Transposase Gene | Terminal Inverted Repeat. The TIRs consist of 9-40 base pairs of usually palindromic DNA. When expressed, the Transposase gene finds the TIRs, makes a double stranded DNA break, and moves the DNA elsewhere. If the DNA is repaired homologously, this causes a copy-and-paste effect, however often it is not repaired fully, creating a cut-and-paste effect. Even when cut-and-paste occurs, the cut leaves behind the TIRs which become the "footprint" of the transposable element.<a href="#4" class="citation">[4]</a></p>
+
+      <div style="text-align: center;">
+        <img class='content-image'  style="max-height:none;"  src="tree.png"/>
+        <br />
+        <p>Interactive tree coming soon!</p>
+      </div>
+
+      <div class="footnotes">
+        <h6>Footnotes</h6>
+        <p id="1">[1] Muñoz-López, M., & García-Pérez, J. L. (2010). DNA transposons: nature and applications in genomics. <i>Current genomics</i>, 11(2), 115-128. https://doi.org/10.2174/138920210790886871</p>
+        <p id="2">[2] Feschotte, C. & Pritham, E. J. DNA transposons and the evolution of eukaryotic genomes. <i>Annual Reviews in Genetics</i> 41, 331-348. </p>
+        <p id="3">[3] Udayangani, S. (2022, April 26). What is the difference between LTR and Non-LTR Retrotransposons. Compare the Difference Between Similar Terms. Retrieved November 7, 2022, from https://www.differencebetween.com/what-is-the-difference-between-ltr-and-non-ltr-retrotransposons/ </p>
+        <p id="4">[4] Muñoz-López, M., & García-Pérez, J. L. (2010). DNA transposons: nature and applications in genomics. <i>Current genomics</i>, 11(2), 115–128. https://doi.org/10.2174/138920210790886871</p>
+
+      </div>
     </div>
+    
   </body>
 </html>
