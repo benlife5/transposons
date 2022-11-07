@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <title>Defenses Against Transposable Elements - Computation Biology</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script>
+      function toggleHighlight() {
+        const inputText = document.getElementById("alu-seq");
+        const innerHTML = inputText.innerHTML;
+        const newInnerHTML = innerHTML.replaceAll("CG", "<span class='highlight'>CG</span>")
+        inputText.innerHTML = newInnerHTML;
+      }
+    </script>
   </head>
   <body>
     <!-- Navbar -->
@@ -18,10 +26,33 @@
     <!-- Content -->
     <div class="content">
       <h1>Defenses Against Transposable Elements</h1>
-      <h4>Humans</h4>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula ligula id mi commodo porttitor. Vivamus eget interdum ligula. Cras feugiat urna in lacus egestas, et mollis tortor elementum. Maecenas molestie lorem id elit efficitur ultrices. Praesent tincidunt ex et molestie luctus. Etiam id magna aliquet, euismod risus quis, accumsan erat. Maecenas id erat gravida elit pulvinar consequat sit amet id enim. In sagittis in elit in auctor. Donec tincidunt elit a molestie ultricies. Pellentesque urna felis, tristique at commodo ac, dignissim auctor justo. Pellentesque ut efficitur ante. Nullam mauris lacus, fermentum vel porta eu, ornare nec neque.</p>
-      <h4>Other Organisms</h4>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula ligula id mi commodo porttitor. Vivamus eget interdum ligula. Cras feugiat urna in lacus egestas, et mollis tortor elementum. Maecenas molestie lorem id elit efficitur ultrices. Praesent tincidunt ex et molestie luctus. Etiam id magna aliquet, euismod risus quis, accumsan erat. Maecenas id erat gravida elit pulvinar consequat sit amet id enim. In sagittis in elit in auctor. Donec tincidunt elit a molestie ultricies. Pellentesque urna felis, tristique at commodo ac, dignissim auctor justo. Pellentesque ut efficitur ante. Nullam mauris lacus, fermentum vel porta eu, ornare nec neque.</p>
+      <h4>Methylation</h4>
+      <div style="text-align: center;">
+        <img class='content-image' src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/DNA_methylation.svg/2560px-DNA_methylation.svg.png"/>
+      </div>
+      <p>One common way DNA replication is repressed is methylation. Methylation can occur by adding a methyl group to cytosine or adenine. Once a section of DNA is methylated, the cell acts differently on that section, often not by expressing it. The expression of transposons is usually what causes their duplication, so a methylating transposon is often a good cellular strategy for containing them.</p>
+      <p>The transposon family Alu accounts for ~10% of human DNA. Alus also contain 9 times more C followed by G sequences than human DNA in general. Methylation almost always occurs on a C followed by a G. As a result, Alu genes account for 33% of potential methylation sites and are almost totally methylated in human cells.<a href="#1" class="citation">[1]</a></p>
+      <div>
+        <h6>DF0000066.4 [AluYk4] -- Example of a human Alu gene</h6>
+        <p class="DNA-seq" id="alu-seq">
+          GGCCGGGCGCGGTGGCTCACGCCTGTAATCCCAGCACTTTGGGAGGCCGAGGCGGGCGGATCACGAGGTCAGGAGATCGAGACCATCCTG
+          GCTAACACGGTGAAACCCCGTCTCTACTAAAAATACAAAAAATTAGCCGGGCGCGGTGGCGGGCGCCTGTAGTCCCAGCTACTCGGGAGG
+          CTGAGGCAGGAGAATGGCGTGAACCCGGGAGGCGGAGCTTGCAGTGAGCCGAGATAGCGCCACTGCAGTCCGGCCTGGGCGAAAGAGCGA
+          GACTCCGTCTCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        </p>
+        <button onClick="toggleHighlight()" id="highlight-button">Show potential methylation sites</button>
+      </div>
+      
+      <h4>RNA Interference Pathway</h4>
+      <p>An ancient but still active cellular mechanism is the RNA Interference Pathway (or RNAi). RNAi serves an immune system targeting viruses and transposons by identifying harmful RNA and destroying it.</p>
+      <p>The cell produces small sequences of RNA called small interfering RNAs (siRNAs). These siRNAs join with a RNAi-Induced Silencing Complex (RISC) which then targets and destroys specific mRNA sequences. In this way, RISC is similar to a CRISPR system but for RNA.</p>
+      <p>The RNA Interference Pathway has been studied primarily in fruit flies (Drosophila) and plans, but has also been found in mammals.<a href="#2" class="citation">[2]</a></p>
+    
+      <div class="footnotes">
+        <h6>Footnotes</h6>
+        <p id="1">[1] Schmid C. W. (1998). Does SINE evolution preclude Alu function?. <i>Nucleic acids research</i>, 26(20), 4541-4550. https://doi.org/10.1093/nar/26.20.4541</p>
+        <p id="2">[2] Buchon, N., Vaury, C. RNAi: a defensive RNA-silencing against viruses and transposable elements. <i>Heredity</i> <b>96</b>, 195-202 (2006). https://doi.org/10.1038/sj.hdy.6800789</p>
+      </div>
     </div>
   </body>
 </html>
