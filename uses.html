@@ -18,10 +18,40 @@
     <!-- Content -->
     <div class="content">
       <h1>Uses of Transposable Elements</h1>
-      <h4>Gene Editing</h4>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula ligula id mi commodo porttitor. Vivamus eget interdum ligula. Cras feugiat urna in lacus egestas, et mollis tortor elementum. Maecenas molestie lorem id elit efficitur ultrices. Praesent tincidunt ex et molestie luctus. Etiam id magna aliquet, euismod risus quis, accumsan erat. Maecenas id erat gravida elit pulvinar consequat sit amet id enim. In sagittis in elit in auctor. Donec tincidunt elit a molestie ultricies. Pellentesque urna felis, tristique at commodo ac, dignissim auctor justo. Pellentesque ut efficitur ante. Nullam mauris lacus, fermentum vel porta eu, ornare nec neque.</p>
-      <h4>Studying Evolutionary History</h4>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula ligula id mi commodo porttitor. Vivamus eget interdum ligula. Cras feugiat urna in lacus egestas, et mollis tortor elementum. Maecenas molestie lorem id elit efficitur ultrices. Praesent tincidunt ex et molestie luctus. Etiam id magna aliquet, euismod risus quis, accumsan erat. Maecenas id erat gravida elit pulvinar consequat sit amet id enim. In sagittis in elit in auctor. Donec tincidunt elit a molestie ultricies. Pellentesque urna felis, tristique at commodo ac, dignissim auctor justo. Pellentesque ut efficitur ante. Nullam mauris lacus, fermentum vel porta eu, ornare nec neque.</p>
-    </div>
-  </body>
-</html>
+      <h2>Gene Editing</h2>
+      <p>DNA transposons can be inserted into a genome as foreign DNA and from there, 
+        changes in behavior can be analyzed in order to better understand gene development and disease growth</p>
+      <button type="button" class="collapsible">Sleeping Beauty</button>
+      <div class="content">
+        <p>Type of transposon that can be inserted into the genome and to see which areas are responsible for cancers through mutagenesis in tumors and other areas of tissue</p>
+      </div>
+      <button type="button" class="collapsible">Frog Prince</button>
+      <div class="content">
+        <p>Type of transposon that is able to be used for gene trapping experiments in tissue culture cells</p>
+      </div>
+      <button type="button" class="collapsible">piggyBac</button>
+      <div class="content">
+        <p>Type of transposon that is used primarily in insects, are able to alter the diseases that they are carrying in order to reduce sickness rates</p>
+      </div>
+      <div class="footnotes">
+        <h6>Sources</h6>
+        <p id="1">Muñoz-López, Martín, and José L García-Pérez. “DNA Transposons: Nature and Applications in Genomics.” Current Genomics, Bentham Science Publishers Ltd., Apr. 2010, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874221/. </p>
+      </div>
+      </div>
+          <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+            </script>
+        </body>
+      </html>
