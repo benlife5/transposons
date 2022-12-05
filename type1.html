@@ -52,5 +52,18 @@
                 <p id="4">[4] Dr.Samanthi. “What Is the Difference between LTR and Non-LTR Retrotransposons.” DifferenceBetween, 2022, https://www.differencebetween.com/what-is-the-difference-between-ltr-and-non-ltr-retrotransposons/. </p>
             </div> 
         </div>
+        <script>
+            fetch('./example_line1_seq.txt')
+              .then(response => response.text())
+              .then(text => {
+                const element = document.getElementById("ALUviz");
+                const viewer = seqviz.Viewer(element, {
+                name: "Example ALU",
+                seq: text,
+                style: {width: '700px', height: '500px'}
+              })
+              .render();
+              })
+          </script>
     </body>
     </html>
