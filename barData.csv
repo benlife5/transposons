@@ -1,0 +1,13 @@
+species,Retrotransposons,DNA transposons,fullName
+Sc,100,0,Saccharomyces cerevisiae (yeast)
+Sp,100,0,Schizosaccharomyces pombe (yeast)
+Hs,90,10,Homo sapiens (humans)
+Mm,95,5,Mus musculus (mouse)
+Os,15,85,Oryza sativa (rice)
+Ce,15,85,Caenorhabditis elegans (roundworm)
+Dm,78,22,Drosophila melanogaster (fly)
+Ag,62,38,Anopheles gambiae (malaria mosquito)
+Aa,35,65,Aedes aegypti (yellow fever mosquito)
+Eh,98,2,Entamoeba histolytica (parasite)
+Ei,2,98,Entamoeba invadens (parasite)
+Tv,1,99,Trichomonas vaginalis (STD)

@@ -43,28 +43,10 @@
         DNA to RNA transposons in their genome, but human DNA contains
         overwelmingly RNA retrotransposons.
       </p>
-      <div style="text-align: center">
-        <img
-          class="content-image"
-          style="max-height: none"
-          src="https://www.nature.com/scitable/content/29645/NE_transposons_large_2.jpg"
-        />
-        <br />
-        <a href="#2" class="citation">Image: [2]</a>
-        <p>
-          (Sc: Saccharomyces cerevisiae (yeast); Sp: Schizosaccharomyces pombe
-          (yeast); Hs: Homo sapiens (humans); Mm: Mus musculus (mouse); Os:
-          Oryza sativa (rice); Ce: Caenorhabditis elegans (roundworm); Dm:
-          Drosophila melanogaster (fly); Ag: Anopheles gambiae (malaria
-          mosquito); Aa: Aedes aegypti, yellow fever mosquito; Eh: Entamoeba
-          histolytica (parasite); Ei: Entamoeba invadens (parasite); Tv:
-          Trichomonas vaginalis (STD).)
-        </p>
-        <p>
-          Note: the plan is to make this easier to read and more interactive
-          later.
-        </p>
+      <div id="bar-chart" style="text-align:center">
+        <h6 style="margin:0">Relative Distribution of Transposable Elements in Common Species<a href="#2" class="citation">[2]</a></h6>
       </div>
+      
 
       <h4>RNA Retrotransposons</h4>
       <p>
@@ -100,8 +82,10 @@
       </p>
     </div>
 
-    <div id="chart" style="background-color: white; text-align: center">
-      <h4 style="margin: 0; padding: 20px">Transposon Tree Diagram<a href="#5" class="citation">[5]</a></h4>
+    <div id="chart" style="background-color: white; text-align: center; margin: 0 10px; border: 5px solid black;">
+      <h4 style="margin: 0; padding: 20px">
+        Transposon Tree Diagram<a href="#5" class="citation">[5]</a>
+      </h4>
     </div>
 
     <div class="content" style="margin-top: 0; min-height: 0">
@@ -128,7 +112,9 @@
           115–128. https://doi.org/10.2174/138920210790886871
         </p>
         <p id="5">
-          [5] Data from <a href="dfam.org" target="_blank">Dfam</a> version 3.6 (Produced at the Institute for Systems Biology and the University of Montana, licensed with CC0)
+          [5] Data from <a href="dfam.org" target="_blank">Dfam</a> version 3.6
+          (Produced at the Institute for Systems Biology and the University of
+          Montana, licensed with CC0)
         </p>
       </div>
     </div>
@@ -145,7 +131,6 @@
 
     const tree = d3.tree().nodeSize([dx, dy]);
     const tooltip = document.createElement("div");
-    console.log(tooltip);
     tooltip.setAttribute("class", "my-tooltip"); //add the tooltip class
     tooltip.setAttribute("position", "absolute");
     tooltip.setAttribute("z-index", "10");
@@ -242,14 +227,15 @@
           .attr("stroke-width", 10);
 
         nodeEnter
-          .append("text")      
+          .append("text")
           .attr("dy", "0.31em")
           .attr("x", (d) => (d._children ? -6 : 6))
           .attr("text-anchor", (d) => (d._children ? "end" : "start"))
           .text((d) => d)
           .on("mouseover", function (event, data) {
             tooltip.style.visibility = "visible";
-            tooltip.innerHTML = "<b>" + data.data.name + ": </b>" + data.data.title;
+            tooltip.innerHTML =
+              "<b>" + data.data.name + ": </b>" + data.data.title;
           })
           .on("mousemove", function (d) {
             tooltip.style.top = d.pageY - 40 + "px";
@@ -320,5 +306,114 @@
     };
 
     document.getElementById("chart").appendChild(createChart());
+  </script>
+  <script>
+    // set the dimensions and margins of the graph
+    const marginBar = { top: 10, right: 30, bottom: 60, left: 100 },
+      widthBar = 600 - marginBar.left - marginBar.right,
+      height = 400 - marginBar.top - marginBar.bottom;
+    // append the svg object to the body of the page
+    const svg = d3
+      .select("#bar-chart")
+      .append("svg")
+      .attr("width", widthBar + marginBar.left + marginBar.right)
+      .attr("height", height + marginBar.top + marginBar.bottom)
+      .append("g")
+      .attr("transform", `translate(${marginBar.left},${marginBar.top})`);
+
+    const tooltip = document.createElement("div");
+    tooltip.setAttribute("class", "my-tooltip"); //add the tooltip class
+    tooltip.setAttribute("position", "absolute");
+    tooltip.setAttribute("z-index", "10");
+    tooltip.style.visibility = "hidden";
+
+    document.getElementById("bar-chart").appendChild(tooltip);
+
+    // Parse the Data
+    d3.csv("./barData.csv").then(function (data) {
+      // List of subgroups = header of the csv files = soil condition here
+      const subgroups = data.columns.slice(1);
+
+      const namesDict = {}
+      data.forEach((row, index) => {
+        if (index === 0) return
+        namesDict[row.species] = row.fullName
+        delete row.fullName
+      })
+
+      // List of groups = species here = value of the first column called group -> I show them on the X axis
+      const groups = data.map((d) => d.species);
+      // Add X axis
+      const x = d3
+        .scaleBand()
+        .domain(groups)
+        .range([0, widthBar])
+        .padding([0.2]);
+      svg
+        .append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x).tickSizeOuter(0));
+
+      // Add Y axis
+      const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+      svg.append("g").call(d3.axisLeft(y));
+
+      // color palette = one color per subgroup
+      const color = d3
+        .scaleOrdinal()
+        .domain(subgroups)
+        .range(["#e41a1c", "#377eb8"]);
+
+      //stack the data? --> stack per subgroup
+      const stackedData = d3.stack().keys(subgroups)(data);
+
+      svg
+        .append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", widthBar / 2)
+        .attr("y", height + 40)
+        .text("Species");
+
+      svg
+        .append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("y", -50)
+        .attr("x", -height / 4)
+        .attr("dy", ".75em")
+        .attr("transform", "rotate(-90)")
+        .text("Relative Contribution (%)");
+      // Show the bars
+
+      svg
+        .append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData)
+        .join("g")
+        .attr("fill", (d) => color(d.key))
+        .selectAll("rect")
+        // enter a second time = loop subgroup per subgroup to add all rectangles
+        .data((d) => d)
+        .join("rect")
+        .attr("id", (d) => d.data.species)
+        .attr("x", (d) => x(d.data.species))
+        .attr("y", (d) => y(d[1]))
+        .attr("height", (d) => y(d[0]) - y(d[1]))
+        .attr("width", x.bandwidth())
+        .data((d) => d)
+        .on("mouseover", function (d) {
+          tooltip.style.visibility = "visible";
+          tooltip.innerHTML = "<b>" + namesDict[d.target.id] + "</b>";
+        })
+        .on("mousemove", function (d) {
+          tooltip.style.top = d.pageY - 40 + "px";
+          tooltip.style.left = d.pageX - 130 + "px";
+        })
+        .on("mouseout", function () {
+          return (tooltip.style.visibility = "hidden");
+        });
+    });
   </script>
 </html>
