@@ -21,7 +21,7 @@
       <a class="navbar-link" href="./uses.html">Uses</a>
     </div>
     <!-- Content -->
-    <div class="content" style="margin-bottom:0">
+    <div class="content" style="margin-bottom: 0">
       <h1>Transposable Elements</h1>
       <p>
         Transposable Elements (also called transposons or TEs) are DNA sequences
@@ -100,11 +100,11 @@
       </p>
     </div>
 
-    <div id="chart" style="background-color:white;text-align:center">
-      <h4 style="margin:0;padding:20px">Transposon Tree Diagram</h4>
+    <div id="chart" style="background-color: white; text-align: center">
+      <h4 style="margin: 0; padding: 20px">Transposon Tree Diagram<a href="#5" class="citation">[5]</a></h4>
     </div>
 
-    <div class="content" style="margin-top:0">
+    <div class="content" style="margin-top: 0; min-height: 0">
       <div class="footnotes">
         <h6>Sources</h6>
         <p id="1">
@@ -127,24 +127,31 @@
           nature and applications in genomics. <i>Current genomics</i>, 11(2),
           115–128. https://doi.org/10.2174/138920210790886871
         </p>
+        <p id="5">
+          [5] Data from <a href="dfam.org" target="_blank">Dfam</a> version 3.6 (Produced at the Institute for Systems Biology and the University of Montana, licensed with CC0)
+        </p>
       </div>
     </div>
-    
-
   </body>
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script type="module">
-    import data from "http://localhost:8000/treeData.js"
-    // const width = document.getElementsByClassName("content")[0].offsetWidth
-    // const dx = 250;
-    // const dy = 600;
+    import data from "http://localhost:8000/treeData.js";
+
     const dx = 40;
     const dy = 170;
-    const width = 1300
+    const width = 1300;
 
     const margin = { top: 20, right: 50, bottom: 20, left: 50 };
 
     const tree = d3.tree().nodeSize([dx, dy]);
+    const tooltip = document.createElement("div");
+    console.log(tooltip);
+    tooltip.setAttribute("class", "my-tooltip"); //add the tooltip class
+    tooltip.setAttribute("position", "absolute");
+    tooltip.setAttribute("z-index", "10");
+    tooltip.style.visibility = "hidden";
+    document.getElementById("chart").appendChild(tooltip);
+
     // const tree = d3.tree().size([dx, dy]);
     const diagonal = d3
       .linkHorizontal()
@@ -183,12 +190,12 @@
         const duration = d3.event && d3.event.altKey ? 2500 : 250;
         const nodes = root.descendants().reverse();
         const links = root.links();
-        
-        let maxDepth = 0
+
+        let maxDepth = 0;
         nodes.forEach((node) => {
-          if (node.depth > maxDepth) maxDepth = node.depth
-        })
-        console.log(maxDepth)
+          if (node.depth > maxDepth) maxDepth = node.depth;
+        });
+        console.log(maxDepth);
         // Compute the new tree layout.
         tree(root);
 
@@ -211,7 +218,7 @@
             window.ResizeObserver ? null : () => () => svg.dispatch("toggle")
           );
 
-        transition
+        transition;
 
         // Update the nodes…
         const node = gNode.selectAll("g").data(nodes, (d) => d.id);
@@ -235,10 +242,22 @@
           .attr("stroke-width", 10);
 
         nodeEnter
-          .append("text")
+          .append("text")      
           .attr("dy", "0.31em")
           .attr("x", (d) => (d._children ? -6 : 6))
           .attr("text-anchor", (d) => (d._children ? "end" : "start"))
+          .text((d) => d)
+          .on("mouseover", function (event, data) {
+            tooltip.style.visibility = "visible";
+            tooltip.innerHTML = "<b>" + data.data.name + ": </b>" + data.data.title;
+          })
+          .on("mousemove", function (d) {
+            tooltip.style.top = d.pageY - 40 + "px";
+            tooltip.style.left = d.pageX - 130 + "px";
+          })
+          .on("mouseout", function () {
+            return (tooltip.style.visibility = "hidden");
+          })
           .text((d) => d.data.name)
           .clone(true)
           .lower()
