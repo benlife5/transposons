@@ -1,10 +1,14 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Transposable Elements - Computation Biology</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.css" type="text/css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.css"
+      type="text/css"
+    />
   </head>
   <body>
     <!-- Navbar -->
@@ -17,43 +21,285 @@
       <a class="navbar-link" href="./uses.html">Uses</a>
     </div>
     <!-- Content -->
-    <div class="content">
+    <div class="content" style="margin-bottom:0">
       <h1>Transposable Elements</h1>
-      <p>Transposable Elements (also called transposons or TEs) are DNA sequences that are able to move from one location to another in the genome.</p>
-      <p>Transposons have been identified in all types of life, from bacteria to humans. Further, significant portions of many species' genomes are made of transposons, including 45% of human DNA and 90% of maize DNA.<a href="#1" class="citation">[1]</a></p>
+      <p>
+        Transposable Elements (also called transposons or TEs) are DNA sequences
+        that are able to move from one location to another in the genome.
+      </p>
+      <p>
+        Transposons have been identified in all types of life, from bacteria to
+        humans. Further, significant portions of many species' genomes are made
+        of transposons, including 45% of human DNA and 90% of maize DNA.<a
+          href="#1"
+          class="citation"
+          >[1]</a
+        >
+      </p>
       <h4>Types of Transposable Elements</h4>
-      <p>Transposable Elements broadly fall into two categories: RNA Retrotransposons and DNA Transposons. Species vary on the proportion of DNA to RNA transposons in their genome, but human DNA contains overwelmingly RNA retrotransposons.</p>
-      <div style="text-align: center;">
-        <img class='content-image' style="max-height:none;" src="https://www.nature.com/scitable/content/29645/NE_transposons_large_2.jpg"/>
+      <p>
+        Transposable Elements broadly fall into two categories: RNA
+        Retrotransposons and DNA Transposons. Species vary on the proportion of
+        DNA to RNA transposons in their genome, but human DNA contains
+        overwelmingly RNA retrotransposons.
+      </p>
+      <div style="text-align: center">
+        <img
+          class="content-image"
+          style="max-height: none"
+          src="https://www.nature.com/scitable/content/29645/NE_transposons_large_2.jpg"
+        />
         <br />
         <a href="#2" class="citation">Image: [2]</a>
-        <p>(Sc: Saccharomyces cerevisiae (yeast); Sp: Schizosaccharomyces pombe (yeast); Hs: Homo sapiens (humans); Mm: Mus musculus (mouse); Os: Oryza sativa (rice); Ce: Caenorhabditis elegans (roundworm); Dm: Drosophila melanogaster (fly); Ag: Anopheles gambiae (malaria mosquito); Aa: Aedes aegypti, yellow fever mosquito; Eh: Entamoeba histolytica (parasite); Ei: Entamoeba invadens (parasite); Tv: Trichomonas vaginalis (STD).)</p>
-        <p>Note: the plan is to make this easier to read and more interactive later.</p>
+        <p>
+          (Sc: Saccharomyces cerevisiae (yeast); Sp: Schizosaccharomyces pombe
+          (yeast); Hs: Homo sapiens (humans); Mm: Mus musculus (mouse); Os:
+          Oryza sativa (rice); Ce: Caenorhabditis elegans (roundworm); Dm:
+          Drosophila melanogaster (fly); Ag: Anopheles gambiae (malaria
+          mosquito); Aa: Aedes aegypti, yellow fever mosquito; Eh: Entamoeba
+          histolytica (parasite); Ei: Entamoeba invadens (parasite); Tv:
+          Trichomonas vaginalis (STD).)
+        </p>
+        <p>
+          Note: the plan is to make this easier to read and more interactive
+          later.
+        </p>
       </div>
 
       <h4>RNA Retrotransposons</h4>
-      <p>RNA-based transposable elements rely on transcription from DNA to RNA and then using reverse transcriptase to be placed back into DNA. Because the RNA makes a copy of the transposable element and then reinserts it elsewhere, this creates a copy-and-paste effect.</p>
-      <p>Retrotransposons can be further classified into Long Terminal Repeat elements (LTRs) and Non-LTR elements. LTR transposons have long sequences of repeated DNA surrounding their genes. These repeats are often ~5 kilo-base-pairs long.<a href="#3" class="citation">[3]</a></p>
-      <p>The most famous human transposable elements, Alu and LINE1 are Non-LTR Retrotransposons. See more at <a href="./common/html">Common Transposable Elements</a>.</p>
+      <p>
+        RNA-based transposable elements rely on transcription from DNA to RNA
+        and then using reverse transcriptase to be placed back into DNA. Because
+        the RNA makes a copy of the transposable element and then reinserts it
+        elsewhere, this creates a copy-and-paste effect.
+      </p>
+      <p>
+        Retrotransposons can be further classified into Long Terminal Repeat
+        elements (LTRs) and Non-LTR elements. LTR transposons have long
+        sequences of repeated DNA surrounding their genes. These repeats are
+        often ~5 kilo-base-pairs long.<a href="#3" class="citation">[3]</a>
+      </p>
+      <p>
+        The most famous human transposable elements, Alu and LINE1 are Non-LTR
+        Retrotransposons. See more at
+        <a href="./common/html">Common Transposable Elements</a>.
+      </p>
 
       <h4>DNA Transposons</h4>
-      <p>DNA Transposons use a transposase enzyme to move within DNA. Generally, the structure of a DNA transposon is Terminal Inverted Repeat | Transposase Gene | Terminal Inverted Repeat. The TIRs consist of 9-40 base pairs of usually palindromic DNA. When expressed, the Transposase gene finds the TIRs, makes a double stranded DNA break, and moves the DNA elsewhere. If the DNA is repaired homologously, this causes a copy-and-paste effect, however often it is not repaired fully, creating a cut-and-paste effect. Even when cut-and-paste occurs, the cut leaves behind the TIRs which become the "footprint" of the transposable element.<a href="#4" class="citation">[4]</a></p>
+      <p>
+        DNA Transposons use a transposase enzyme to move within DNA. Generally,
+        the structure of a DNA transposon is Terminal Inverted Repeat |
+        Transposase Gene | Terminal Inverted Repeat. The TIRs consist of 9-40
+        base pairs of usually palindromic DNA. When expressed, the Transposase
+        gene finds the TIRs, makes a double stranded DNA break, and moves the
+        DNA elsewhere. If the DNA is repaired homologously, this causes a
+        copy-and-paste effect, however often it is not repaired fully, creating
+        a cut-and-paste effect. Even when cut-and-paste occurs, the cut leaves
+        behind the TIRs which become the "footprint" of the transposable
+        element.<a href="#4" class="citation">[4]</a>
+      </p>
+    </div>
 
-      <div style="text-align: center;">
-        <img class='content-image'  style="max-height:none;"  src="tree.png"/>
-        <br />
-        <p>Interactive tree coming soon!</p>
-      </div>
+    <div id="chart" style="background-color:white;text-align:center">
+      <h4 style="margin:0;padding:20px">Transposon Tree Diagram</h4>
+    </div>
 
+    <div class="content" style="margin-top:0">
       <div class="footnotes">
         <h6>Sources</h6>
-        <p id="1">[1] Muñoz-López, M., & García-Pérez, J. L. (2010). DNA transposons: nature and applications in genomics. <i>Current genomics</i>, 11(2), 115-128. https://doi.org/10.2174/138920210790886871</p>
-        <p id="2">[2] Feschotte, C. & Pritham, E. J. DNA transposons and the evolution of eukaryotic genomes. <i>Annual Reviews in Genetics</i> 41, 331-348. </p>
-        <p id="3">[3] Udayangani, S. (2022, April 26). What is the difference between LTR and Non-LTR Retrotransposons. Compare the Difference Between Similar Terms. Retrieved November 7, 2022, from https://www.differencebetween.com/what-is-the-difference-between-ltr-and-non-ltr-retrotransposons/ </p>
-        <p id="4">[4] Muñoz-López, M., & García-Pérez, J. L. (2010). DNA transposons: nature and applications in genomics. <i>Current genomics</i>, 11(2), 115–128. https://doi.org/10.2174/138920210790886871</p>
-
+        <p id="1">
+          [1] Muñoz-López, M., & García-Pérez, J. L. (2010). DNA transposons:
+          nature and applications in genomics. <i>Current genomics</i>, 11(2),
+          115-128. https://doi.org/10.2174/138920210790886871
+        </p>
+        <p id="2">
+          [2] Feschotte, C. & Pritham, E. J. DNA transposons and the evolution
+          of eukaryotic genomes. <i>Annual Reviews in Genetics</i> 41, 331-348.
+        </p>
+        <p id="3">
+          [3] Udayangani, S. (2022, April 26). What is the difference between
+          LTR and Non-LTR Retrotransposons. Compare the Difference Between
+          Similar Terms. Retrieved November 7, 2022, from
+          https://www.differencebetween.com/what-is-the-difference-between-ltr-and-non-ltr-retrotransposons/
+        </p>
+        <p id="4">
+          [4] Muñoz-López, M., & García-Pérez, J. L. (2010). DNA transposons:
+          nature and applications in genomics. <i>Current genomics</i>, 11(2),
+          115–128. https://doi.org/10.2174/138920210790886871
+        </p>
       </div>
     </div>
     
+
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script type="module">
+    import data from "http://localhost:8000/treeData.js"
+    // const width = document.getElementsByClassName("content")[0].offsetWidth
+    // const dx = 250;
+    // const dy = 600;
+    const dx = 40;
+    const dy = 170;
+    const width = 1300
+
+    const margin = { top: 20, right: 50, bottom: 20, left: 50 };
+
+    const tree = d3.tree().nodeSize([dx, dy]);
+    // const tree = d3.tree().size([dx, dy]);
+    const diagonal = d3
+      .linkHorizontal()
+      .x((d) => d.y)
+      .y((d) => d.x);
+    const createChart = () => {
+      const root = d3.hierarchy(data);
+
+      root.x0 = dy / 2;
+      root.y0 = 0;
+      root.descendants().forEach((d, i) => {
+        d.id = i;
+        d._children = d.children;
+        if (d.depth && d.data.name.length !== 7) d.children = null;
+      });
+
+      const svg = d3
+        .create("svg")
+        .attr("viewBox", [-margin.left, -margin.top, width, dx])
+        .style("font", "10px sans-serif")
+        .style("user-select", "none");
+
+      const gLink = svg
+        .append("g")
+        .attr("fill", "none")
+        .attr("stroke", "#555")
+        .attr("stroke-opacity", 0.4)
+        .attr("stroke-width", 1.5);
+
+      const gNode = svg
+        .append("g")
+        .attr("cursor", "pointer")
+        .attr("pointer-events", "all");
+
+      function update(source) {
+        const duration = d3.event && d3.event.altKey ? 2500 : 250;
+        const nodes = root.descendants().reverse();
+        const links = root.links();
+        
+        let maxDepth = 0
+        nodes.forEach((node) => {
+          if (node.depth > maxDepth) maxDepth = node.depth
+        })
+        console.log(maxDepth)
+        // Compute the new tree layout.
+        tree(root);
+
+        let left = root;
+        let right = root;
+        root.eachBefore((node) => {
+          if (node.x < left.x) left = node;
+          if (node.x > right.x) right = node;
+        });
+
+        const height = right.x - left.x + margin.top + margin.bottom;
+
+        const transition = svg
+          .transition()
+          .duration(duration)
+          .attr("viewBox", [-margin.left, left.x - margin.top, width, height])
+          .style("font", "14px sans-serif")
+          .tween(
+            "resize",
+            window.ResizeObserver ? null : () => () => svg.dispatch("toggle")
+          );
+
+        transition
+
+        // Update the nodes…
+        const node = gNode.selectAll("g").data(nodes, (d) => d.id);
+
+        // Enter any new nodes at the parent's previous position.
+        const nodeEnter = node
+          .enter()
+          .append("g")
+          .attr("transform", (d) => `translate(${source.y0},${source.x0})`)
+          .attr("fill-opacity", 0)
+          .attr("stroke-opacity", 0)
+          .on("click", (event, d) => {
+            d.children = d.children ? null : d._children;
+            update(d);
+          });
+
+        nodeEnter
+          .append("circle")
+          .attr("r", 2.5)
+          .attr("fill", (d) => (d._children ? "#555" : "#999"))
+          .attr("stroke-width", 10);
+
+        nodeEnter
+          .append("text")
+          .attr("dy", "0.31em")
+          .attr("x", (d) => (d._children ? -6 : 6))
+          .attr("text-anchor", (d) => (d._children ? "end" : "start"))
+          .text((d) => d.data.name)
+          .clone(true)
+          .lower()
+          .attr("stroke-linejoin", "round")
+          .attr("stroke-width", 3)
+          .attr("stroke", "white");
+
+        // Transition nodes to their new position.
+        const nodeUpdate = node
+          .merge(nodeEnter)
+          .transition(transition)
+          .attr("transform", (d) => `translate(${d.y},${d.x})`)
+          .attr("fill-opacity", 1)
+          .attr("stroke-opacity", 1);
+
+        // Transition exiting nodes to the parent's new position.
+        const nodeExit = node
+          .exit()
+          .transition(transition)
+          .remove()
+          .attr("transform", (d) => `translate(${source.y},${source.x})`)
+          .attr("fill-opacity", 0)
+          .attr("stroke-opacity", 0);
+
+        // Update the links…
+        const link = gLink.selectAll("path").data(links, (d) => d.target.id);
+
+        // Enter any new links at the parent's previous position.
+        const linkEnter = link
+          .enter()
+          .append("path")
+          .attr("d", (d) => {
+            const o = { x: source.x0, y: source.y0 };
+            return diagonal({ source: o, target: o });
+          });
+
+        // Transition links to their new position.
+        link.merge(linkEnter).transition(transition).attr("d", diagonal);
+
+        // Transition exiting nodes to the parent's new position.
+        link
+          .exit()
+          .transition(transition)
+          .remove()
+          .attr("d", (d) => {
+            const o = { x: source.x, y: source.y };
+            return diagonal({ source: o, target: o });
+          });
+
+        // Stash the old positions for transition.
+        root.eachBefore((d) => {
+          d.x0 = d.x;
+          d.y0 = d.y;
+        });
+      }
+
+      update(root);
+
+      return svg.node();
+    };
+
+    document.getElementById("chart").appendChild(createChart());
+  </script>
 </html>
